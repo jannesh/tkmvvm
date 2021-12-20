@@ -1,6 +1,5 @@
 from context import tkmvvm
 from typing import Union
-import ast
 
 class CalculatorViewModel(tkmvvm.viewmodel.ViewModel):
     _entry = ""
@@ -91,3 +90,5 @@ class CalculatorViewModel(tkmvvm.viewmodel.ViewModel):
             self.computation = eval(self.entry)
         except SyntaxError:
             self.computation = 'Syntax error!'
+        except ZeroDivisionError:
+            self.computation = 'Devide by zero!'
